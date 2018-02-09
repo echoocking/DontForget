@@ -4,6 +4,11 @@ from bs4 import BeautifulSoup
 import time
 from pymongo import MongoClient
 
+"""
+2018年01月11日21:28:57
+in Xueyuan road, BJ
+"""
+
 
 def get_article_url(article):
     """
