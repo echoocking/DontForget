@@ -49,7 +49,7 @@ class Singleton(object):
         return cls._instance
 
     """
-    为什么要传入cls, *args, **kwargs。因为要实例化这个类变量阿哥。然后需要把传入的参数绑定到实例上。
+    为什么要传入cls, *args, **kwargs。因为要实例化这个类。然后需要把传入的参数绑定到实例上。
     所以测试一下类方法是不是不会调用__new__。
     """
 
@@ -59,9 +59,12 @@ class Singleton(object):
 
     @staticmethod
     def static_func():
-        print '我是一个静态的小口爱'
+        print '我是一个静态的小口爱'  # 静态方法什么都不需要传入。所以既不可以访问类变量，也不可以访问实例变量，真单纯不做作，23333
 
     def instance_func(self):
+        """可以访问类变量，也可以访问实例变量。因为python在实例话的时候，会把类变量deepcopy一份给每一个实例。
+        相当于把所有类变量都给自动转了成为实例变量。所以直接修改类变量是不行的哟，而且你也没有cls。
+        想要修改类变量还是老老实实去类方法里改吧"""
         print '我是一个什么都不写的家伙'
 
 

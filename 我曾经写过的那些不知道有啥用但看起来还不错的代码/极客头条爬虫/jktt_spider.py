@@ -1,4 +1,4 @@
-# encoding: utf-8
+# coding: utf-8
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -92,10 +92,11 @@ def jktt_crawler():
         time.sleep(6)
 
 
-url = 'http://geek.csdn.net/forum/43?t=&page={}&last_id=6%3A{}'
-mongo_conn = connect_mongo('mongodb://localhost:27017/jktt')
-article_table = mongo_conn.jktt.article
-jktt_crawler()
+if __name__ == '__main__':
+    url = 'http://geek.csdn.net/forum/43?t=&page={}&last_id=6%3A{}'
+    mongo_conn = connect_mongo('mongodb://localhost:27017/jktt')
+    article_table = mongo_conn.jktt.article
+    jktt_crawler()
 
 """
 需求较为简单，且为demo项目，故使用requests+BeautifulSoup完成
