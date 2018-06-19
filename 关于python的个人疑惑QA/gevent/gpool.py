@@ -18,10 +18,11 @@ i was sleep 1 sec
 ****res****
 """
 
-
-from gevent.pool import Pool
+from gevent import monkey; monkey.patch_all()
+from gevent.pool import Pool as gpool
+import requests
 import time
-gpool = Pool(5)
+
 
 
 def delay_func():
@@ -44,7 +45,6 @@ def main():
     print(len(gpool))
     gpool.apply_async(add, args=[4,2])
     gpool.join()
-
 
 if __name__ == '__main__':
     main()

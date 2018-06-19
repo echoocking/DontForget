@@ -18,6 +18,6 @@ def url_unquote(url):
 
 
 if __name__ == '__main__':
-    url = 'https://fun.fanli.com/goshop/go?go=http%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D564357535644&id=712&lc=taohuasuan_9kuai9&pid=564357535644&sign=e4e75898'
+    url = 'https://fun.fanli.com/goshop/go?id=712&lc=taohuasuan_9kuai9&go=https://uland.taobao.com/coupon/edetail?e=M%2Fix9%2Fwfdz%2BbhUsf2ayXDCkum0Md9jW28qz22AlK%2FM%2FS00l8O80VB7cZelJt%2Bzjy9nNa8V2%2FfgCU8bIiPhUhftzNwQTGaE3k14t9QUPD0GaTz0aCh2qIRzxNuKO33NBYKWk794GLk9290%2BcSgujO2Yu6FJABcKj4gPRfTgnhrZM%3D&af=1&pid=mm_32293866_3446435_59504417&itemId=534255178000&sign=0685a179'
     new_url = url_unquote(url)
     print(new_url)
