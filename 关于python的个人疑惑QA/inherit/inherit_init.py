@@ -39,7 +39,7 @@ def test_init_and_new():
 
 
 class Singleton(object):
-
+    """ 实现单例模式 """
     _instance = None
 
     def __new__(cls, *args, **kwargs):
@@ -86,5 +86,55 @@ if __name__ == '__main__':
 2. 静态方法可以被类/类实例调用【2.7】
 3. 类方法可以被类/类实例调用【2.7】
 4. 实例方法只能被实例调用 TypeError: unbound method instance_func() 
+5. 在实行 Singleton()的时候，就会调用__init__ 方法。所以在继承父类初始化的时候，不要Singleton().__init__()这么写。这样写会两次
+调用__init() 方法。有时候粗心会没有注意。Singleton.__init__()，这样写是ok的。另外多重继承的时候
 
+"""
+
+
+# 经典类
+class A():
+    def __init__(self):
+        print 'A'
+
+
+class B(A):
+    def __init__(self):
+        A.__init__(self)
+        print 'B'
+
+
+class C(B, A):
+    def __init__(self):
+        A.__init__(self)
+        B.__init__(self)
+        print 'C'
+
+"""
+使用经典继承里，不要这么写。B继承于A，C继承于A和B, 但C需要调用父类的init()函数时，
+前者会导致父类A的init()函数被调用2次，这是不希望看到的。而且子类要显式地指定父类，不符合DRY原则
+"""
+
+# 新式类
+
+
+class A(object):
+    def __init__(self):
+        print 'A'
+
+
+class B(A):
+    def __init__(self):
+        super(B, self).__init__()
+        print 'B'
+
+
+class C(B, A):
+    def __init__(self):
+        super(C, self).__init__()
+        print 'C'
+
+
+"""
+采用super()方式时，会自动找到第一个多继承中的第一个父类，但是如果还想强制调用其他父类的init()函数或两个父类的同名函数时，就要用老办法了。
 """

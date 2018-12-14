@@ -60,16 +60,22 @@ class TimeUtils(object):
 
         return (datetime.datetime.today() + datetime.timedelta(n)).strftime(fmt)
 
+    @staticmethod
+    def now_timestamp_13():
+        millis = int(round(time.time() * 1000))
+        return millis
+
 
 if __name__ == '__main__':
-    t=TimeUtils.date2timestamp("2017-06-14")
+    t=time.time()
+    print TimeUtils.timestamp2date(t, '%Y-%m-%d %H:00:00')
     print t
-    # print TimeUtils.timestamp2date(t)
-    #
+
+    #  %Y%m%d%H%M%S
     # print TimeUtils.passNday(2)
     # print TimeUtils.futureNday(2)
     # print TimeUtils.date2timestamp(TimeUtils().futureNday(2))
     # print TimeUtils.passNday(0)
     # print TimeUtils.passNday(4)
     # print TimeUtils.futureNday(4)
-    print TimeUtils.zero_timestamp()
+    # print TimeUtils.zero_timestamp()

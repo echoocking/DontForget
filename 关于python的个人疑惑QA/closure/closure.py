@@ -25,6 +25,7 @@ def get_multi(num):
         return num*num
     return inner
 
+
 f4, f5, f6 = [get_multi(i) for i in range(1, 4)]
 print(f4(), f5(), f6())
 
@@ -43,13 +44,15 @@ def count():
         fs.append(f)
     return fs
 
+
 f1, f2, f3 = count()
+
 
 """
 当函数存在嵌套，并且子函数引用了父函数中的变量，可以访问这些变量的作用域就形成闭包。2 如果子函数没有访问父函数中的变量，就不存在闭包。
 """
 
-# lambda 如何传入参数呀？
+# lambda 如何传入参数呀？这里与1不同，传入了参数yo~ [待考证]
 lres = [i for i in map(lambda x: x*x, range(3))]
 print(lres)
 # [0, 1, 4]
@@ -60,6 +63,8 @@ print(lres)
 装饰器作用为 增强函数功能
 """
 
+# 这里写的好像有问题。关于什么时候用*args,**kwargs
+
 
 def wapper_func(func, *args, **kwargs):
     if args:
@@ -69,4 +74,3 @@ def wapper_func(func, *args, **kwargs):
         return func(args, kwargs)
     return inner_func
 
-# @wapper_func
