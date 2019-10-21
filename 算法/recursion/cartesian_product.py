@@ -4,9 +4,8 @@ from copy import deepcopy
 def self_cartesian(l2):
     """
 
-    :param l1: [1,2,3]
-    :param l2: [(1,2), (1,3)]
-    :return: [(), ()]
+    :param l2: [[1,2], [1,3]]
+    :return: [[], []]
     """
     if len(l2) == 1:
         l1 = l2[0]
