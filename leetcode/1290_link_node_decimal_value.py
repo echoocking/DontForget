@@ -8,6 +8,16 @@ class ListNode:
 
 class Solution:
 
+    def getDecimalValueBestAnswer(self, head: ListNode) -> int:
+        re = 0
+        tmp = head
+        while tmp is not None:
+            re = (re << 1) | tmp.val  # 这里res << 1,虽然res是十进制数，但是<<运算符是将该数的二进制全部左移一位，末尾补零。这样整个数就往前挪了一位，也就正好符号链表的存储位置。最后与值进行或运算，用于确定末尾的值 是零还是一
+            tmp = tmp.next
+        return re
+
+
+
     def getDecimalValue(self, head: ListNode) -> int:
         # 遍历相加
         decimal_values = []
@@ -29,7 +39,7 @@ class TestCase:
 
     def test(self):
 
-        values = [0, 0, 0]
+        values = [1, 1, 0]
         first_node = ListNode(values[0])
         n = first_node
         for v in values[1:]:
@@ -53,3 +63,5 @@ node 自己提前进行header标记，然后 n.next= next_node, 进行列表组�
 
 
 """
+
+TestCase().test()
