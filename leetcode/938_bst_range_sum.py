@@ -21,9 +21,20 @@ class BST:
         pass
 
     def delete(self):
+        """
+        先进行查找，找到以后进行删除。
+        删除好像需要考虑的更多呢
+        :return:
+        """
         pass
 
     def search(self, value):
+        """
+        小于转左，大于转右，直到相等或者下一个对应方向为空。
+        好像还有几种遍历方式哦
+        :param value:
+        :return:
+        """
         pass
 
 
