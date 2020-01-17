@@ -73,6 +73,41 @@ class BST:
             else:
                 self._search(value, node.left_node)
 
-    def walk(self):
+    def front_walk(self):
+        self._front_walk(self.root)
+
+    def _front_walk(self, node):
+        if node is None:
+            return
+        print(node.value)
+        self._front_walk(node.left_node)
+        self._front_walk(node.right_node)
+
+    def _walk(self, node, res: list):
         pass
 
+    def back_walk(self):
+        self._back_walk(self.root)
+
+    def _back_walk(self, node):
+        if node is None:
+            return
+        self._back_walk(node.left_node)
+        self._back_walk(node.right_node)
+        print(node.value)
+
+    def test_walk(self):
+
+        root = Node(4)
+        root.left_node = Node(2)
+        root.right_node = Node(5)
+        root.left_node.left_node = Node(1)
+        root.left_node.right_node = Node(3)
+        root.right_node.right_node = Node(6)
+        root.right_node.right_node.right_node = Node(7)
+
+        tree = BST(root)
+        # tree.front_walk()
+        tree.back_walk()
+
+        #max, min, order sequence,
